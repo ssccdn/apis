@@ -1,92 +1,90 @@
 {
-  "info": {
-    "title": "企业信息精确查询",
-    "description": "根据企业名称或营业执照编号查询企业详细工商信息"
-  },
-  "servers": {
-    "url": "htthttps://api.wtool.com.cn/ip/ipNew",
-    "format": [
-      "json",
-      "xml"
+    "info": {
+        "title": "企业信息精确查询",
+        "description": "根据企业名称或营业执照编号查询企业详细工商信息"
+    },
+    "servers": {
+        "url": "https://api.wtool.com.cn/ip/ipNew",
+        "format": [
+            "json",
+            "xml"
+        ],
+        "method": {
+            "http": "https",
+            "method": [
+                "get",
+                "post"
+            ]
+        }
+    },
+    "parameters": [{
+            "name": "key",
+            "in": "query",
+            "type": "string",
+            "required": true,
+            "example": "",
+            "description": "应该APPKEY"
+        },
+        {
+            "name": "keyword",
+            "in": "query",
+            "type": "string",
+            "required": true,
+            "example": "91110108MA005BCA25",
+            "description": "企业全名/注册号/统一社会信用代码"
+        }
     ],
-    "method": {
-      "http": "https",
-      "method": [
-        "get",
-        "post"
-      ]
+    "responses": [{
+            "name": "name",
+            "type": "string",
+            "desc": "公司名称"
+        },
+        {
+            "name": "econ_kind",
+            "type": "string",
+            "desc": "企业类型"
+        },
+        {
+            "name": "addresses",
+            "type": "string",
+            "desc": "地址"
+        },
+        {
+            "name": "reg_no",
+            "type": "string",
+            "desc": "企业注册号"
+        },
+        {
+            "name": "scope",
+            "type": "string",
+            "desc": "经营范围"
+        },
+        {
+            "name": "term_start",
+            "type": "string",
+            "desc": "营业开始日期"
+        },
+        {
+            "name": "term_end",
+            "type": "string",
+            "desc": "营业结束日期"
+        },
+        {
+            "name": "belong_org",
+            "type": "string",
+            "desc": "所属工商局"
+        },
+        {
+            "name": "oper_name",
+            "type": "string",
+            "desc": "法人"
+        }
+    ],
+    "examples": "{\n\t\"error_code\":0,\n\t\"reason\":\"操作成功\",\n\t\"result\":{\n\t\t\"sign\":\"95964acf21ee4503be0deb37b283f21c\",\n\t\t\"data\":{\n\t\t\t\"name\":\"天聚地合（苏州）数据股份有限公司北京分公司\",\n\t\t\t\"econ_kind\":\"股份有限公司分公司(非上市、自然人投资或控股)\",\n\t\t\t\"regist_capi\":\"-\",\n\t\t\t\"scope\":\"网络技术服务；会议服务；设计、制作、代理、发布广告；承办展览展示活动。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）\",\n\t\t\t\"term_start\":\"2016-05-10\",\n\t\t\t\"term_end\":\"-\",\n\t\t\t\"belong_org\":\"海淀分局\",\n\t\t\t\"oper_name\":\"左磊\",\n\t\t\t\"check_date\":\"2017-11-29\",\n\t\t\t\"start_date\":\"2016-05-10\",\n\t\t\t\"end_date\":\"-\",\n\t\t\t\"status\":\"在业\",\n\t\t\t\"org_no\":\"MA005BCA2\",\n\t\t\t\"credit_no\":\"91110108MA005BCA25\",\n\t\t\t\"province\":\"BJ\",\n\t\t\t\"id\":\"2d79de67-481c-402f-9eac-2a6e6a4afc5a\",\n\t\t\t\"abnormal_items\":[\n\t\t\t\t\n\t\t\t],\n\t\t\t\"reg_no\":\"-\",\n\t\t\t\"address\":\"北京市海淀区永澄北路2号院1号楼A座四层405-200\",\n\t\t\t\"employees\":[\n\t\t\t\t{\n\t\t\t\t\t\"name\":\"左磊\",\n\t\t\t\t\t\"job_title\":\"负责人\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"branches\":[\n\t\t\t\t\n\t\t\t],\n\t\t\t\"changerecords\":[\n\t\t\t\t{\n\t\t\t\t\t\"change_item\":\"企业名称\",\n\t\t\t\t\t\"change_date\":\"2017-11-29\",\n\t\t\t\t\t\"before_content\":\"苏州新科兰德科技有限公司北京分公司\",\n\t\t\t\t\t\"after_content\":\"天聚地合（苏州）数据股份有限公司北京分公司\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"partners\":[\n\t\t\t\t\n\t\t\t],\n\t\t\t\"regist_capi_new\":\"-\",\n\t\t\t\"currency_unit\":\"-\"\n\t\t}\n\t}\n}",
+    "status_code": {
+        "231901": "查询无结果",
+        "231907": "查询错误，请联系技术人员",
+        "231908": "参数名错误或参数为空",
+        "231909": "接口查询异常，请联系技术人员"
     }
-  },
-  "parameters": [
-    {
-      "name": "key",
-      "in": "query",
-      "type": "string",
-      "required": true,
-      "example": "",
-      "description": "应该APPKEY"
-    },
-    {
-      "name": "keyword",
-      "in": "query",
-      "type": "string",
-      "required": true,
-      "example": "91110108MA005BCA25",
-      "description": "企业全名/注册号/统一社会信用代码"
-    }
-  ],
-  "responses": [
-    {
-      "name": "name",
-      "type": "string",
-      "desc": "公司名称"
-    },
-    {
-      "name": "econ_kind",
-      "type": "string",
-      "desc": "企业类型"
-    },
-    {
-      "name": "addresses",
-      "type": "string",
-      "desc": "地址"
-    },
-    {
-      "name": "reg_no",
-      "type": "string",
-      "desc": "企业注册号"
-    },
-    {
-      "name": "scope",
-      "type": "string",
-      "desc": "经营范围"
-    },
-    {
-      "name": "term_start",
-      "type": "string",
-      "desc": "营业开始日期"
-    },
-    {
-      "name": "term_end",
-      "type": "string",
-      "desc": "营业结束日期"
-    },
-    {
-      "name": "belong_org",
-      "type": "string",
-      "desc": "所属工商局"
-    },
-    {
-      "name": "oper_name",
-      "type": "string",
-      "desc": "法人"
-    }
-  ],
-  "examples": "{\n\t\"error_code\":0,\n\t\"reason\":\"操作成功\",\n\t\"result\":{\n\t\t\"sign\":\"95964acf21ee4503be0deb37b283f21c\",\n\t\t\"data\":{\n\t\t\t\"name\":\"天聚地合（苏州）数据股份有限公司北京分公司\",\n\t\t\t\"econ_kind\":\"股份有限公司分公司(非上市、自然人投资或控股)\",\n\t\t\t\"regist_capi\":\"-\",\n\t\t\t\"scope\":\"网络技术服务；会议服务；设计、制作、代理、发布广告；承办展览展示活动。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）\",\n\t\t\t\"term_start\":\"2016-05-10\",\n\t\t\t\"term_end\":\"-\",\n\t\t\t\"belong_org\":\"海淀分局\",\n\t\t\t\"oper_name\":\"左磊\",\n\t\t\t\"check_date\":\"2017-11-29\",\n\t\t\t\"start_date\":\"2016-05-10\",\n\t\t\t\"end_date\":\"-\",\n\t\t\t\"status\":\"在业\",\n\t\t\t\"org_no\":\"MA005BCA2\",\n\t\t\t\"credit_no\":\"91110108MA005BCA25\",\n\t\t\t\"province\":\"BJ\",\n\t\t\t\"id\":\"2d79de67-481c-402f-9eac-2a6e6a4afc5a\",\n\t\t\t\"abnormal_items\":[\n\t\t\t\t\n\t\t\t],\n\t\t\t\"reg_no\":\"-\",\n\t\t\t\"address\":\"北京市海淀区永澄北路2号院1号楼A座四层405-200\",\n\t\t\t\"employees\":[\n\t\t\t\t{\n\t\t\t\t\t\"name\":\"左磊\",\n\t\t\t\t\t\"job_title\":\"负责人\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"branches\":[\n\t\t\t\t\n\t\t\t],\n\t\t\t\"changerecords\":[\n\t\t\t\t{\n\t\t\t\t\t\"change_item\":\"企业名称\",\n\t\t\t\t\t\"change_date\":\"2017-11-29\",\n\t\t\t\t\t\"before_content\":\"苏州新科兰德科技有限公司北京分公司\",\n\t\t\t\t\t\"after_content\":\"天聚地合（苏州）数据股份有限公司北京分公司\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"partners\":[\n\t\t\t\t\n\t\t\t],\n\t\t\t\"regist_capi_new\":\"-\",\n\t\t\t\"currency_unit\":\"-\"\n\t\t}\n\t}\n}",
-  "status_code": {
-    "231901": "查询无结果",
-    "231907": "查询错误，请联系技术人员",
-    "231908": "参数名错误或参数为空",
-    "231909": "接口查询异常，请联系技术人员"
-  }
 }
